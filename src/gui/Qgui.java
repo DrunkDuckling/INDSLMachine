@@ -1,4 +1,4 @@
-package machine;
+package gui;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -138,11 +138,7 @@ public class Qgui {
      * @param handler the handler to use when handling GUI events
      */
     public Qgui(final GUIBuilder model, final ActionListener handler) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                buildGUI(model.getTop(),handler);
-            }
-        });
+        javax.swing.SwingUtilities.invokeLater(() -> buildGUI(model.getTop(),handler));
     }
 
     /**
