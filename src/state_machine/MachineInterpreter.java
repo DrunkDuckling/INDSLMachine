@@ -16,6 +16,7 @@ public class MachineInterpreter {
     public void reset(){
         currentState = machine.getInitialState();
     }
+
     public void processEvent(String event){
         for (Transition t: currentState.getTrans()){
             if (t.getEvent().equals(event)){
@@ -25,5 +26,9 @@ public class MachineInterpreter {
             }
         }
         System.out.println("Unhandled event: " + event);
+    }
+
+    public String getState() {
+        return currentState.getName();
     }
 }
