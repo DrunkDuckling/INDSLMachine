@@ -35,6 +35,25 @@ public class StateMachine {
             current.addTransition(t);
             return this;
         }
+
+        /**
+         * TODO - It's not currently working.
+         * @param value Current power level of device
+         * @param minmax Either the minumum or maximum power level.
+         * @param state The state that it should change too
+         * @param effect The lambda expression.
+         * @return
+         */
+        public MachineBuilder ifStateEquals(int value, int minmax, String state, Runnable effect){
+            if (value == minmax){
+                Transition t = new Transition(currentEvent, getState(state), effect);
+                current.addTransition(t);
+                System.out.println("HEY2");
+                return this;
+            }
+            System.out.println("HEY!");
+            return this;
+        }
         public Machine build(){
             return new Machine(states.values(), initial);
         }

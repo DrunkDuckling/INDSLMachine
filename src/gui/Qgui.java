@@ -94,6 +94,22 @@ public class Qgui {
         public GUIBuilder label(String text) {
             return this.label(text,text);
         }
+
+        /**
+         *
+         * @param name Name of object
+         * @param text  text written in field
+         * @return
+         */
+        public GUIBuilder textField(String name, String text){
+            currentRow.add(new NEntryBox(name, text));
+            return this;
+        }
+
+        public GUIBuilder textField(String text){
+            return this.textField(text, text);
+        }
+
         /**
          * Create a button with the given properties
          * @param name the name of the button
